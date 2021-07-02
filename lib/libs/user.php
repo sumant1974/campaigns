@@ -60,7 +60,7 @@ function create(){
         return true;
     }
     //echo implode(",",$stmt->errorInfo());
-    $errmsg=implode(",",$stmt->errorInfo());
+    $this->errmsg=implode(",",$stmt->errorInfo());
     return false;
 }
  
@@ -105,7 +105,7 @@ function emailExists(){
     }
  
     // return false if email does not exist in the database
-    $errmsg=implode(",",$stmt->errorInfo());
+    $this->errmsg=implode(",",$stmt->errorInfo());
     return false;
 }
  
@@ -163,7 +163,7 @@ public function update(){
     if($stmt->execute()){
         return true;
     }
-    $errmsg=implode(",",$stmt->errorInfo());
+    $this->errmsg=implode(",",$stmt->errorInfo());
     return false;
 }
 function getUsers(){
@@ -186,7 +186,7 @@ function getUsers(){
 		//echo json_encode($allusers);
         return true;
     }
- 
+    $this->errmsg=implode(",",$stmt->errorInfo());
     // return false if email does not exist in the database
     return false;
 }
@@ -212,7 +212,7 @@ function getDashboard()
 		//echo json_encode($allusers);
         return $this->dashboard;
     }
- 
+    $this->errmsg=implode(",",$stmt->errorInfo());
     // return false if email does not exist in the database
     return false;
 }
@@ -234,7 +234,7 @@ public function delete()
     }
  
     // return false if email does not exist in the database
-    $errmsg=implode(",",$stmt->errorInfo());
+    $this->errmsg=implode(",",$stmt->errorInfo());
     return false;
 }
 }

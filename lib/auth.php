@@ -71,7 +71,7 @@ class Auth
         {
             
         $result= file_get_contents(__DIR__."\menu.json");
-        if(!$result){die("Connection Failure");}
+        if(!$result){die($this->usr->errmsg);}
         $this->menu=$result;
         }
     }
@@ -80,7 +80,7 @@ class Auth
         if(isset($_SESSION["user_id"]))
         {
             $result=$this->usr->getDashboard();
-            if(!$result){die("Connection Failure");}
+            if(!$result){die($this->usr->errmsg);}
             $this->dashboard=$result;
         }
 
