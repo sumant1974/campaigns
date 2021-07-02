@@ -70,7 +70,7 @@ class Auth
         if(isset($_SESSION["user_id"]))
         {
             
-        $result= file_get_contents(__DIR__."\menu.json");
+        $result= file_get_contents("/lib/menu.json");
         if(!$result){die($this->usr->errmsg);}
         $this->menu=$result;
         }
