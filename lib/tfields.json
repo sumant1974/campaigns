@@ -1,0 +1,41 @@
+[{
+        "column": "Email",
+        "displayname": "Student Email"
+    },
+    {
+        "column": "StudentName",
+        "displayname": "Student Name"
+    },
+    {
+        "column": "StateName",
+        "displayname": "State"
+    },
+    {
+        "column": "Institute",
+        "displayname": "Institute Name"
+    },
+    {
+        "column": "eventname",
+        "displayname": "Event Name"
+    },
+    {
+        "column": "certid",
+        "displayname": "Certificate ID"
+    },
+    {
+        "column": "certissuedate",
+        "displayname": "Certificate Issue Date"
+    },
+    {
+        "column": "coursename",
+        "displayname": "Course Name"
+    },
+    {
+        "column": "duration",
+        "displayname": "Course Duration"
+    },
+    {
+        "column": "regdid",
+        "displayname": "Registration ID"
+    }
+]
