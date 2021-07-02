@@ -71,7 +71,7 @@ function emailExists(){
     $query = "SELECT `userid`,`username`,`password`,`emailid`,`mobile`  FROM " . $this->table_name . " WHERE userid = '" . htmlspecialchars(strip_tags($this->user_id)) ."'";
  
     // prepare the query
-    $this->errmsg=$query;
+    //$this->errmsg=$query;
     $stmt = $this->conn->prepare( $query );
  //echo $query;
     // sanitize
