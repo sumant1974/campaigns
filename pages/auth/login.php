@@ -18,7 +18,9 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
   //print_r($userinfo);
  		if($userinfo){
     				$auth->getMenu();
+					echo $loggedin;
 					$auth->getDashboard();
+					echo $loggedin;
 					$_SESSION["userinfo"]=$userinfo;
 			$_SESSION["menu"]=$auth->menu;
         header('Location: /pages/dashboard/');
