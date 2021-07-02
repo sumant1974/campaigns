@@ -70,7 +70,7 @@ class Auth
         if(isset($_SESSION["user_id"]))
         {
          echo(__DIR__."/lib/menu.json");
-        $result= file_get_contents(__DIR__."/lib/menu.json");
+        $result= file_get_contents(__DIR__."/menu.json");
         if(!$result){die("file menu.json not found");}
         $this->menu=$result;
         }
