@@ -3,7 +3,7 @@
 /* Getting file name */
 $filename = $_POST["filename"];
 /* Location */
-$location = 'd:/test in/';
+$location = '/var/lib/tomcat7/webapps/testin/';
 
 $response = array();
 $response['status']=0;
