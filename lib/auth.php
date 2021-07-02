@@ -71,7 +71,7 @@ class Auth
         {
             
         $result= file_get_contents(__DIR__."/lib/menu.json");
-        if(!$result){die($this->usr->errmsg);}
+        if(!$result){die("file menu.json not found");}
         $this->menu=$result;
         }
     }
