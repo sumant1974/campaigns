@@ -312,10 +312,13 @@ function generateCert($email, $eventid){
         if($num>0){
  
             // get record details / values
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-		    $this->certdetails=$row['certdetails'];
+            //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		    $this->certdetails=$this->regenCert($email,$eventid);
 		    //echo json_encode($allusers);
-            return true;
+            if($this->certdetails)
+            {
+                return true;
+            }
         }   
         else
         {
@@ -422,6 +425,95 @@ function createCert($email, $eventid){
         $cstmt->bindParam(':eventid', $eventid);
         $cstmt->bindParam(':tid', $tid);
         $cstmt->bindParam(':certissuedate', $certissuedate);
+        $cstmt->bindParam(':certdetails', $certdetails);
+        if($cstmt->execute()){
+            return $certdetails;
+        }
+        $errmsg=implode(",",$stmt->errorInfo());
+        return false;
+}
+
+function regenCert($email, $eventid){
+    $query = "SELECT  `certid`,`studentname` FROM  `certdetails` where email=:email and eventid=:eventid"; 
+        // prepare the query
+        $stmt = $this->conn->prepare( $query );  
+        $email=htmlspecialchars(strip_tags($email));
+        $eventid=htmlspecialchars(strip_tags($eventid));
+        $stmt->bindParam(':email', $email); 
+        $stmt->bindParam(':eventid', $eventid);    
+        $stmt->execute();
+        $srow = $stmt->fetch(PDO::FETCH_ASSOC);
+		$certid=$srow['certid'];
+        $sql = "SELECT `tid`,`tdetails` FROM `certtemplate` WHERE `eventid`=:eventid"; 
+        // prepare the query
+        $stmt2 = $this->conn->prepare($sql);
+       // echo($eventid);
+        $stmt2->bindParam(':eventid', $eventid); 
+        $stmt2->execute();
+        //echo($stmt2->rowCount());
+        $trow = $stmt2->fetch(PDO::FETCH_ASSOC);
+		$tid=$trow['tid'];
+        //echo $sid;
+        //echo $srow['studentname'];
+        //echo $tid;
+        //echo($trow['tdetails']);
+        $tdetails=json_decode($trow['tdetails']);
+        $tdetails->name=$srow['studentname'];
+        $tdetails->email=$email;
+        foreach($tdetails->texts as $text){
+            switch($text->txtfield)
+            {
+                case "StudentName":
+                    $text->txtfield=$srow['studentname'];
+                    break;
+                case "coursename":
+                    $text->txtfield=$srow['studentname'];
+                    break;
+                case "duration":
+                    $text->txtfield=$srow['duration'];
+                    break;
+                case "regdid":
+                    $text->txtfield=$srow['regdid'];
+                    break;
+                case "Institute":
+                    $text->txtfield=$srow['institute'];
+                    break;
+                case "Email":
+                    $text->txtfield=$srow['email'];
+                    break;
+                case "StateName":
+                    $text->txtfield=$srow['state'];
+                    break;
+                case "eventname":
+                    $text->txtfield=$srow['eventname'];
+                    break;
+                case "certid":
+                    $text->txtfield=$certid;
+                    break;
+                case "certissuedate":
+                    $text->txtfield=$certissuedate;
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(isset($tdetails->qrcodes)){
+            foreach($tdetails->qrcodes as $qrcode)
+            {
+                $qrcode->txt=$qrcode->txt.$certid;
+            }
+        }
+        
+        $certdetails=json_encode($tdetails);
+        //insert certificate
+        $query = "UPDATE  `certificate`
+                SET
+                    certdetails = :certdetails
+                    where
+                    certid=:certid"
+                    ;
+        $cstmt = $this->conn->prepare($query);
+        $cstmt->bindParam(':certid', $certid);
         $cstmt->bindParam(':certdetails', $certdetails);
         if($cstmt->execute()){
             return $certdetails;
