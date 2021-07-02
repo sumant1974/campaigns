@@ -12,7 +12,9 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 	//echo($loggedin);
     if ($loggedin==1) {
         // Log in
+		echo $loggedin;
 		$userinfo=$auth->getUser();
+		print_r($userinfo);
   //print_r($userinfo);
  		if($userinfo){
     				$auth->getMenu();
