@@ -434,7 +434,7 @@ function createCert($email, $eventid){
 }
 
 function regenCert($email, $eventid){
-    $query = "SELECT  `certid`,`studentname`,`email`,`eventname`,`coursename`,`duration`,`regdid`,`institute`,`state` FROM  `certdetails` where email=:email and eventid=:eventid"; 
+    $query = "SELECT  `certid`,`certissuedate`,`studentname`,`email`,`eventname`,`coursename`,`duration`,`regdid`,`institute`,`state` FROM  `certdetails` where email=:email and eventid=:eventid"; 
         // prepare the query
         $stmt = $this->conn->prepare( $query );  
         $email=htmlspecialchars(strip_tags($email));
