@@ -488,10 +488,10 @@ function regenCert($email, $eventid){
                     $text->txtfield=$srow['eventname'];
                     break;
                 case "certid":
-                    $text->txtfield=$certid;
+                    $text->txtfield=$srow['certid'];
                     break;
                 case "certissuedate":
-                    $text->txtfield=$certissuedate;
+                    $text->txtfield=$srow['certissuedate'];
                     break;
                 default:
                     break;
