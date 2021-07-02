@@ -371,7 +371,7 @@ function createCert($email, $eventid){
                     $text->txtfield=$srow['studentname'];
                     break;
                 case "coursename":
-                    $text->txtfield=$srow['studentname'];
+                    $text->txtfield=$srow['coursename'];
                     break;
                 case "duration":
                     $text->txtfield=$srow['duration'];
@@ -434,7 +434,7 @@ function createCert($email, $eventid){
 }
 
 function regenCert($email, $eventid){
-    $query = "SELECT  `certid`,`studentname` FROM  `certdetails` where email=:email and eventid=:eventid"; 
+    $query = "SELECT  `certid`,`studentname`,`email`,`eventname`,`coursename`,`duration`,`regdid`,`institute`,`state` FROM  `certdetails` where email=:email and eventid=:eventid"; 
         // prepare the query
         $stmt = $this->conn->prepare( $query );  
         $email=htmlspecialchars(strip_tags($email));
@@ -467,7 +467,7 @@ function regenCert($email, $eventid){
                     $text->txtfield=$srow['studentname'];
                     break;
                 case "coursename":
-                    $text->txtfield=$srow['studentname'];
+                    $text->txtfield=$srow['coursename'];
                     break;
                 case "duration":
                     $text->txtfield=$srow['duration'];
