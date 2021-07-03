@@ -66,6 +66,14 @@ else
 	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 	<link rel="stylesheet" type="text/css" href="/dist/css/AdminLTE.min.css">
 <!--===============================================================================================-->
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LffItwZAAAAAHNtiOLHQe4Qr2sD1EXTIz_8W3Ww&#038;ver=3.0' id='google-recaptcha-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LffItwZAAAAAHNtiOLHQe4Qr2sD1EXTIz_8W3Ww","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eduskillsfoundation.org/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.4.1' id='wpcf7-recaptcha-js'></script>
+
 </head>
 <body>
 	
