@@ -339,6 +339,7 @@ $tid=$_POST["tid"];
                                         <th>Text Color</th>
                                         <th>Text Before</th>
                                         <th>Text After</th>
+                                        <th>Align</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -357,6 +358,7 @@ $tid=$_POST["tid"];
                                         </td>
                                         <td>{{text.txtbefore}}</td>
                                         <td>{{text.txtafter}}</td>
+                                        <td>{{text.align}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button class="btn btn-default" ng-click="template_text_edit($index)"
@@ -470,6 +472,17 @@ $tid=$_POST["tid"];
                                                     <input type="text" class="form-control" id="edittxtafter"
                                                         placeholder="Text After" name="edittxtafter"
                                                         ng-model="edittxtafter"></input>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="align">Align</label>
+                                                    <select type="text" class="form-control" id="editalign"
+                                                        placeholder="Text After" name="editalign"
+                                                        ng-model="editalign">
+                                                        <option value="left">left</option>
+                                                        <option value="right">right</option>
+                                                        <option value="center" selected>center</option>
+                                                        </select>
 
                                                 </div>
                                             </div>
@@ -832,6 +845,17 @@ $tid=$_POST["tid"];
                                                 ng-model="addtxtafter"></input>
 
                                         </div>
+                                        <div class="form-group">
+                                                    <label for="align">Align</label>
+                                                    <select type="text" class="form-control" id="addalign"
+                                                        placeholder="Text After" name="addalign"
+                                                        ng-model="addalign">
+                                                        <option value="left">left</option>
+                                                        <option value="right">right</option>
+                                                        <option value="center" selected>center</option>
+                                                        </select>
+
+                                                </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal"
@@ -950,7 +974,7 @@ $tid=$_POST["tid"];
             }
 
             $scope.template_text_add = function() {
-                alert("adding text");
+               // alert("adding text");
                 $scope.addtxtfield = "";
                 $scope.addtxtposx = "";
                 $scope.addtxtposy = "";
@@ -958,6 +982,7 @@ $tid=$_POST["tid"];
                 $scope.addtxtcolor = "#000000";
                 $scope.addtxtafter = "";
                 $scope.addtxtbefore = "";
+                $scope.addalign="center";
                 $scope.form_add_text.$setPristine();
                 //outlineeditor.insertHtml($scope.course_outline);
             }
@@ -989,6 +1014,7 @@ $tid=$_POST["tid"];
                 $scope.edittxtcolor = $scope.tdetails.texts[index].bc;
                 $scope.edittxtafter = $scope.tdetails.texts[index].txtafter;
                 $scope.edittxtbefore = $scope.tdetails.texts[index].txtbefore;
+                $scope.editalign = $scope.tdetails.texts[index].align;
                 //outlineeditor.insertHtml($scope.course_outline);
             }
 
@@ -1097,7 +1123,8 @@ $tid=$_POST["tid"];
                     "fontSize": $scope.addtxtfontsize,
                     "bc": $scope.addtxtcolor,
                     "txtafter": $scope.addtxtafter,
-                    "txtbefore": $scope.addtxtbefore
+                    "txtbefore": $scope.addtxtbefore,
+                    "align": $scope.addalign
                 };
                 if($scope.tdetails.texts)
                 {
@@ -1150,6 +1177,7 @@ $tid=$_POST["tid"];
                 $scope.tdetails.texts[$scope.edittxtindex].bc = $scope.edittxtcolor;
                 $scope.tdetails.texts[$scope.edittxtindex].txtafter = $scope.edittxtafter;
                 $scope.tdetails.texts[$scope.edittxtindex].txtbefore = $scope.edittxtbefore;
+                $scope.tdetails.texts[$scope.edittxtindex].align = $scope.editalign;
                 $document[0].getElementById("closeedittxtmodal").click();
                 //alert("testing..");
             }
