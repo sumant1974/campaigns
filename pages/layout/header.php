@@ -53,4 +53,12 @@ include_once "../layout/functions.php";
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js" integrity="sha512-c2T3C9cjX/WQscZb+Qws0CqbPujwNik3JPOzn4r/PwHDYdIVxC+LXOY51+4qAsR2wutl7iC0at47X1EIroFq5A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/js/papaparse.js"></script>
   <script src="/js/papaparse.min.js"></script>
+  <script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6LffItwZAAAAAHNtiOLHQe4Qr2sD1EXTIz_8W3Ww&#038;ver=3.0' id='google-recaptcha-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LffItwZAAAAAHNtiOLHQe4Qr2sD1EXTIz_8W3Ww","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://eduskillsfoundation.org/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=5.4.1' id='wpcf7-recaptcha-js'></script>
+
 </head>
