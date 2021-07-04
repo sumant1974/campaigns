@@ -102,8 +102,8 @@ $tid=$_POST["tid"];
                             <div class="col-md-3">
                                 <div align="center">
                                     <button class="btn btn-app bg-green" data-toggle="modal"
-                                        data-target="#modal-create-text">
-                                        <i class="fa fa-plus" ng-click="template_text_add()"></i>Add Text
+                                        data-target="#modal-create-text"  ng-click="template_text_add()">
+                                        <i class="fa fa-plus"></i>Add Text
                                     </button>
                                 </div>
                             </div>
