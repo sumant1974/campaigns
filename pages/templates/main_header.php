@@ -349,7 +349,7 @@ app.controller('templateCtrl', function($scope, $http, $resource, DTOptionsBuild
 
 });
 app.controller('createCtrl', function($scope, $http) {
-    $scope.template_details='{}';
+    $scope.template_details='{"images":[],"texts":[],"qrcodes":[]}';
     $http.get("/pages/events/getevents.php")
         .then(function(response) {
             $scope.events = response.data;
