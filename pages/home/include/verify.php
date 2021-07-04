@@ -19,9 +19,10 @@
 var app = angular.module('myApp', ['datatables', 'ngResource', 'ckeditor', 'datatables.buttons', 'cgBusy']);
 app.controller('certController', function($scope, $http, $resource, DTOptionsBuilder) {
 
-  $scope.myPromise=$http.get('getcert.php?certid='+<?php echo $certid ?>)
-            .then(function(response) {
-                if(response.data == "null")
+            $scope.myPromise= $http.get('getcert.php?certid='+<?php echo $certid ?>)
+        .then(function(response) {
+            // alert(response.data);
+            if(response.data == "null")
                 {
                         $scope.errmsg="Sorry this certificate details could not be found";
                 }
@@ -30,7 +31,7 @@ app.controller('certController', function($scope, $http, $resource, DTOptionsBui
                         errmsg="";
                         $scope.cert=response.data;
                 }
-            });
+        });
 
 });
 </script>
