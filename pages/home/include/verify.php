@@ -18,7 +18,7 @@
 <script>
 var app = angular.module('myApp', ['datatables', 'ngResource', 'ckeditor', 'datatables.buttons', 'cgBusy']);
 app.controller('certController', function($scope, $http, $resource, DTOptionsBuilder) {
-        $scope.certid=<?php echo $certid ?>;
+        $scope.certid="<?php echo $certid ?>";
             $scope.myPromise= $http.get('getcert.php?certid='+$scope.certid)
         .then(function(response) {
             // alert(response.data);
