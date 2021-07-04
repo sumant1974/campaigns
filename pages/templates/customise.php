@@ -988,7 +988,7 @@ $tid=$_POST["tid"];
             }
 
             $scope.template_qrc_add = function() {
-                $scope.addqrclink = "https://certificate.eduskillsfoundation.org/pages/certificates/verify.php?cert=";
+                $scope.addqrclink = "https://certificate.eduskillsfoundation.org/pages/home/verify.php?cert=";
                 $scope.addtxtposx = "";
                 $scope.addtxtposy = "";
                 $scope.form_add_qrc.$setPristine();

@@ -24,7 +24,7 @@ app.controller('certController', function($scope, $http, $resource, DTOptionsBui
             // alert(response.data);
             if(response.data == "null")
                 {
-                        $scope.errmsg="Sorry this certificate details could not be found";
+                        $scope.errmsg="Sorry this certificate details not found";
                 }
                 else
                 {
