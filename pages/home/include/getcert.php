@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../../lib/certificate.php";
+include_once "../../../lib/certificate.php";
 $certificate=new certificate;
     if(isset($_GET['certid']))
     {
