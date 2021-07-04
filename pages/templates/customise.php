@@ -953,7 +953,7 @@ $tid=$_POST["tid"];
             $http.get("/lib/tfields.json")
                 .then(function(response) {
                     $scope.txtfs = response.data;
-                    $scope.txtfs = orderBy(txtfs,'column',false);
+                  //  $scope.txtfs = orderBy(txtfs,'column',false);
                 });
         
             
