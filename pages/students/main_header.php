@@ -571,7 +571,7 @@ app.controller('createCtrl', function($scope, $http) {
         });
 
 });
-app.controller('uploadCtrl', function($scope, $http) {
+app.controller('uploadCtrl', function($scope, $http, $window) {
     $scope.uploadStudents = {};
     $http.get("/pages/events/getevents.php")
         .then(function(response) {
@@ -620,7 +620,7 @@ app.controller('uploadCtrl', function($scope, $http) {
         $scope.form_upload.$setPristine();
         $scope.totalstudents = 0;
         $scope.progress = 0;
-        $route.reload();
+        $window.location.reload();
 
     }
     $scope.downloadSamplecsv = function() {
