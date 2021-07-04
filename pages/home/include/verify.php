@@ -31,7 +31,7 @@ app.controller('certController', function($scope, $http, $resource, DTOptionsBui
                         errmsg="";
                         $scope.cert=response.data;
                 }
-        });
+        })
 
 });
 </script>
