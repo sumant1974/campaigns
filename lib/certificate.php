@@ -6,6 +6,7 @@ class certificate
     public $allcertificates;
     private $certificates;
     private $studevents;
+    public $cert;
     public function __construct(){
        // get database connection
        $database = new Database();
@@ -37,6 +38,16 @@ public function getcertificatecount()
                 "certificates" => $this->allcertificates
             )
         );
+        return $result;
+   }
+
+   public function getcertificate($certid)
+   {
+        $this->certificates->getCertificate($certid);
+        $this->cert=$this->certificates->certificate;
+        //print_r($result);
+        //if(!$allcertificates){die($this->certificates->errmsg);}
+        $result=json_encode($this->cert);
         return $result;
    }
 }

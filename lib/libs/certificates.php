@@ -10,6 +10,7 @@ class Certificates{
     public $certid;
      public $certcount;
      public $allCertificates;
+     public $certificate;
      public $errmsg;
     // constructor
     public function __construct($db){
@@ -79,5 +80,33 @@ function getCertificatecount(){
      return false;
 }
 
+//Get One Certificate
+function getCertificate($certid){
+    
+        $query = "SELECT `eventid`,`eventname`,`certid`,`certissuedate`,`certdetails`,`studentname`,`email`,`institute`,`state`,`regdid`,`coursename`,`duration` FROM `certdetails` where certid=:certid"; 
+        // prepare the query
+        $stmt = $this->conn->prepare( $query );
+        $certid=htmlspecialchars(strip_tags($certid));
+        $stmt->bindParam(':certid', $certid);    
+    // query to check if email exists
+    
+    $stmt->execute();
+ 
+    // get number of rows
+    $num = $stmt->rowCount();
+ 
+    if($num>0){
+ 
+        // get record details / values
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->certificate=$row;
+		//echo json_encode($allusers);
+        return true;
+    }
+ 
+    // return false if email does not exist in the database
+    $errmsg=implode(",",$stmt->errorInfo());
+    return false;
+}
 
 }
