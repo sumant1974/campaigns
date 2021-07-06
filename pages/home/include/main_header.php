@@ -7,7 +7,7 @@
     <form ng-submit="getevents()" method="post" id="form_search">
       <div class="form-group has-feedback">
       
-        <label>Provide your emailid:</label>
+        <label>Please enter your Email ID:</label>
         <input type="email" class="form-control" placeholder="Email" id="email" name="email" ng-model="email" ng-change="resetevents()" required>
         
         
