@@ -82,7 +82,7 @@ var wpcf7_recaptcha = {"sitekey":"6LffItwZAAAAAHNtiOLHQe4Qr2sD1EXTIz_8W3Ww","act
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
                     <img src="https://eduskillsfoundation.org/wp-content/uploads/2019/09/logo.png" alt="eduskills logo"/>
-                    <h3 align="center">Certification Management Portal</h3>
+                    <h3 align="center">Certificate Management Portal</h3>
 					<img src="../../images/img-01.png" alt="IMG">
 				</div>
 

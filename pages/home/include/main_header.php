@@ -2,8 +2,8 @@
   
 
   <div class="register-box-body">
-    <h3 class="login-box-msg">Welcome to <br/>Eduskills Certification Portal</h3>
-    <p>Help: Please provide your email id and search for events. Select the event and click on Generate Certificate button to download your certificate.</p>
+    <h3 class="login-box-msg">Welcome to <br/>Eduskills Certificate Portal</h3>
+    <p>Note: <br/>1. Please enter your registered email id and search for events. <br/>2. Select the event and click on Generate Certificate button to download your certificate.</p>
     <form ng-submit="getevents()" method="post" id="form_search">
       <div class="form-group has-feedback">
       
