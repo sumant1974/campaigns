@@ -67,9 +67,12 @@ include_once "header.php";
     background: #337ab7;
     color: #fff;
 }
+
+@media only screen and (min-width: 600px) {
 .register-box{
-  width:40%;
+  width:50%;
   margin: 3% auto;
+}
 }
 </style>
 </head>
