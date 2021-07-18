@@ -56,6 +56,14 @@ $certid=$_GET['cert'];
   <script src="/js/papaparse.min.js"></script>
 
 <style>
+
+@media only screen and (max-width: 600px) {
+  .register-box{
+  width:100%;
+  margin: 3% auto;
+}
+}
+
 .register-box-body {
     background: #337ab7;
     color: #fff;

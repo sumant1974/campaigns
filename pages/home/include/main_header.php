@@ -101,7 +101,7 @@ app.controller('certController', function($scope, $http, $resource, DTOptionsBui
                     },
                 }).then(function successCallback(response) {
 
-                  alert(JSON.stringify(response.data));
+                 // alert(JSON.stringify(response.data));
                   $scope.tjson=JSON.stringify(response.data);
                 });
   }
