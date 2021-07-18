@@ -35,6 +35,9 @@ class Student
             $this->Students->institute=$this->institute;
             $this->Students->state=$this->state;
             $this->Students->eventid=$this->eventid;
+            $this->Students->regdid=$this->regdid;
+            $this->Students->coursename=$this->coursename;
+            $this->Students->duration=$this->duration;
             $result=$this->Students->create();
             //print_r($result);
             if(!$result){

@@ -2,6 +2,7 @@
 include_once "../layout/header.php";
 include_once "../../lib/student.php";
 $student=new Student;
+print_r($_POST);
 $student->firstname=$_POST['firstname'];
 $student->lastname=$_POST['lastname'];
 $student->institute=$_POST['institute'];

@@ -43,7 +43,7 @@
                         <i class="fas fa-calendar-plus"></i>
                     </div>
 
-                    <div align="center" style="col-sm-6">
+                    <div align="center">
                         <a class="btn btn-app bg-green" data-toggle="modal" data-target="#modal-create">
                             <i class="fa fa-plus"></i>Add
                         </a>
@@ -61,7 +61,7 @@
                         <!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body" style="">
+                    <div class="box-body" >
                         <form id="form_select" name="form_event_filter" class="appnitro" role="form" method="post"
                             ng-submit="showStudents()">
                             <div class="form-group">
@@ -318,7 +318,7 @@
                     <div class="form-group">
                         <label for="Last Name">Last Name</label>
                         <input type="text" class="form-control" id="lastname" placeholder="Enter lastname of student"
-                            name="Lastname" ng-model="Lastname" required>
+                            name="lastname" ng-model="lastname" required>
 
                         <span style="color:red" ng-show="form_add.lastname.$dirty && form_add.lastname.$invalid">
                             <span ng-show="form_add.lastname.$error.required">Enter Last Name to
@@ -455,7 +455,7 @@
                             <div class="progress active">
                                 <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar"
                                     aria-valuenow={{progress}} aria-valuemin="0" aria-valuemax={{totalstudents}}
-                                    style={{progressper}}>
+                                    ng-style=progressper>
 
                                 </div>
 
