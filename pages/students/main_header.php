@@ -645,24 +645,25 @@ app.controller('uploadCtrl', function($scope, $http, $window) {
         }
     }
     $scope.importStudents = function() {
-        if ($scope.uploadStudents.length != 0 || Object.keys($scope.uploadStudents[0]).length !== 5) {
+        if ($scope.uploadStudents.length != 0 || Object.keys($scope.uploadStudents[0]).length != 8) {
             $scope.totalstudents = $scope.uploadStudents.length;
             eventid = $scope.uploadeventid;
             $scope.errortext = "";
             $scope.saving = true;
             var j = 0;
+            var fd = new FormData();
             for (i = 0; i < $scope.uploadStudents.length; i++) {
-                var fd = new FormData();
-                fd.append('firstname', $scope.uploadStudents[i].firstname);
-                fd.append('lastname', $scope.uploadStudents[i].lastname);
-                fd.append('institute', $scope.uploadStudents[i].institute);
-                fd.append('email', $scope.uploadStudents[i].email);
-                fd.append('state', $scope.uploadStudents[i].state);
-                fd.append('regdid', $scope.uploadStudents[i].regdid);
-                fd.append('coursename', $scope.uploadStudents[i].coursename);
-                fd.append('duration', $scope.uploadStudents[i].duration);
-                fd.append('record', i + 1);
-                fd.append('eventid', eventid);
+                
+                fd.set('firstname', $scope.uploadStudents[i].firstname);
+                fd.set('lastname', $scope.uploadStudents[i].lastname);
+                fd.set('institute', $scope.uploadStudents[i].institute);
+                fd.set('email', $scope.uploadStudents[i].email);
+                fd.set('state', $scope.uploadStudents[i].state);
+                fd.set('regdid', $scope.uploadStudents[i].regdid);
+                fd.set('coursename', $scope.uploadStudents[i].coursename);
+                fd.set('duration', $scope.uploadStudents[i].duration);
+                fd.set('record', i + 1);
+                fd.set('eventid', eventid);
                 // AJAX request
                 $http({
                     method: 'post',
@@ -682,7 +683,7 @@ app.controller('uploadCtrl', function($scope, $http, $window) {
                         $scope.progress = j;
                         if (j == $scope.totalstudents) {
                             $scope.progresstext =
-                                "Competed importing all records, All errors during import is shown below";
+                                "Completed importing all records, All errors during import is shown below";
                         } else {
                             $scope.progresstext = "Importing record " + $scope.progress + " of " +
                                 $scope.totalstudents;
@@ -695,7 +696,7 @@ app.controller('uploadCtrl', function($scope, $http, $window) {
                         $scope.progress = j;
                         if (j == $scope.totalstudents) {
                             $scope.progresstext =
-                                "Competed importing all records, All errors during import is shown below";
+                                "Completed importing all records, All errors during import is shown below";
                         } else {
                             $scope.progresstext = "Importing record " + $scope.progress + " of " +
                                 $scope.totalstudents;
