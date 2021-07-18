@@ -455,7 +455,7 @@
                             <div class="progress active">
                                 <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar"
                                     aria-valuenow={{progress}} aria-valuemin="0" aria-valuemax={{totalstudents}}
-                                    ng-style=progressper>
+                                    style={{progressper}}>
 
                                 </div>
 
