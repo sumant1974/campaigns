@@ -52,7 +52,7 @@
                         <!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body" style="">
+                    <div class="box-body" >
                         <form id="form_select" name="form_event_filter" class="appnitro" role="form" method="post"
                             ng-submit="showCerts()">
                             <div class="form-group">

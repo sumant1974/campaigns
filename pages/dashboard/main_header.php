@@ -84,7 +84,39 @@
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
         <div cg-busy="myPromise"></div>
-          <h2>Welcome to Eduskills Certification Management Portal</h2>
+        <h2>Welcome to Eduskills Certification Management Portal</h2>
+        <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Summary Sheet</h3>
+                    <div cg-busy="myPromise"></div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="cert-table" class="table table-bordered table-striped dataTable" datatable="ng"
+                        dt-options="dtOptions" dt-instance="dtInstance">
+                        <thead>
+                            <tr>
+                                <th>Sl. No.</th>
+                                <th>Event Name</th>
+                                <th>Total Students</th>
+                                <th>Certificates Issued</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="event in events" repeat-done="initDataTable">
+                                <td>{{$index+1}}</td>
+                                <td>{{event.eventname}}</td>
+                                <td>{{event.studentcount}}</td>
+                                <td>{{event.certcount}}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                   
+                                    
+                </div>
+            </div>
 
         </section>
         <!-- /.Left col -->
@@ -107,13 +139,19 @@ app.controller('dashController', function($scope, $http, $resource, DTOptionsBui
   $scope.templatecount = "";
   $scope.studentcount = "";
   $scope.certcount = "";
-  $scope.myPromise= $http.get('/pages/dashboard/getdashboard.php')
+  $http.get('/pages/dashboard/getdashboard.php')
         .then(function(response) {
          
             $scope.eventcount = response.data.eventcount;
             $scope.templatecount = response.data.templatecount;
             $scope.studentcount = response.data.studentcount;
             $scope.certcount = response.data.certcount;
+            $scope.$digest();
+        });
+    $scope.myPromise= $http.get('/pages/dashboard/getsummary.php')
+        .then(function(response) {
+         
+            $scope.events= response.data;
             $scope.$digest();
         });
 });

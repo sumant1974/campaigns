@@ -56,13 +56,13 @@ class Auth
         if(isset($_SESSION["user_id"]))
         {
             // set user property values here
-            $userinfo=array("firstname"=>$this->usr->username,"user_id"=>$this->usr->user_id);
+            $this->userinfo=array("firstname"=>$this->usr->username,"user_id"=>$this->usr->user_id);
             //print_r($userinfo);
-            return $userinfo;
+            return $this->userinfo;
         }
         else
         {
-            return $userinfo;
+            return $this->userinfo;
         }
     }
     public function getMenu()
@@ -82,6 +82,16 @@ class Auth
             $result=$this->usr->getDashboard();
             if(!$result){die($this->usr->errmsg);}
             $this->dashboard=$result;
+        }
+
+    }
+    public function getSummary()
+    {
+        if(isset($_SESSION["user_id"]))
+        {
+            $result=$this->usr->getSummary();
+            if(!$result){die($this->usr->errmsg);}
+            $this->summary=$result;
         }
 
     }

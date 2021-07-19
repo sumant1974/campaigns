@@ -15,6 +15,7 @@ class User{
      public $allusers;
      public $errmsg;
      public $dashboard;
+     public $summary;
     // constructor
     public function __construct($db){
         $this->conn = $db;
@@ -211,6 +212,31 @@ function getDashboard()
         $this->dashboard=['eventcount'=>$row['eventcount'],'templatecount'=>$row['templatecount'],'studentcount'=>$row['studentcount'],'certcount'=>$row['certcount']];
 		//echo json_encode($allusers);
         return $this->dashboard;
+    }
+    $this->errmsg=implode(",",$stmt->errorInfo());
+    // return false if email does not exist in the database
+    return false;
+}
+
+function getSummary()
+{
+    // query to check if email exists
+    $query = "SELECT * FROM `eventcertcount`";
+ 
+    // prepare the query
+    $stmt = $this->conn->prepare( $query );
+ 
+    $stmt->execute();
+ 
+    // get number of rows
+    $num = $stmt->rowCount();
+ 
+    if($num>0){
+ 
+        // get record details / values
+        $this->summary=$stmt->fetchAll(PDO::FETCH_ASSOC);
+		//echo json_encode($allusers);
+        return $this->summary;
     }
     $this->errmsg=implode(",",$stmt->errorInfo());
     // return false if email does not exist in the database
