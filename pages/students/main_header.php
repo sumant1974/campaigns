@@ -647,23 +647,23 @@ app.controller('uploadCtrl', function($scope, $http, $window) {
     $scope.importStudents = function() {
         if ($scope.uploadStudents.length != 0 || Object.keys($scope.uploadStudents[0]).length != 8) {
             $scope.totalstudents = $scope.uploadStudents.length;
-            eventid = $scope.uploadeventid;
+            $scope.eventid = $scope.uploadeventid;
             $scope.errortext = "";
             $scope.saving = true;
             var j = 0;
             
-            for (i = 0; i < $scope.uploadStudents.length; i++) {
+            $scope.uploadStudents.forEach(function(student,index){
                 var fd = new FormData();
-                fd.append('firstname', $scope.uploadStudents[i].firstname);
-                fd.append('lastname', $scope.uploadStudents[i].lastname);
-                fd.append('institute', $scope.uploadStudents[i].institute);
-                fd.append('email', $scope.uploadStudents[i].email);
-                fd.append('state', $scope.uploadStudents[i].state);
-                fd.append('regdid', $scope.uploadStudents[i].regdid);
-                fd.append('coursename', $scope.uploadStudents[i].coursename);
-                fd.append('duration', $scope.uploadStudents[i].duration);
-                fd.append('record', i + 1);
-                fd.append('eventid', eventid);
+                fd.append('firstname', student.firstname);
+                fd.append('lastname', student.lastname);
+                fd.append('institute', student.institute);
+                fd.append('email', student.email);
+                fd.append('state', student.state);
+                fd.append('regdid', student.regdid);
+                fd.append('coursename', student.coursename);
+                fd.append('duration', student.duration);
+                fd.append('record', index + 1);
+                fd.append('eventid', $scope.eventid);
                 // AJAX request
                 $http({
                     method: 'post',
@@ -706,8 +706,12 @@ app.controller('uploadCtrl', function($scope, $http, $window) {
                         // alert("Error importing record number "+$scope.fustatus.record+","+$scope.fustatus.message);
                     }
                     // alert($scope.fustatus.msg);
+                })
+                .catch(function onError(error) {
+                                console.log(error);         
                 });
-            }
+                
+            });
 
         }
     }

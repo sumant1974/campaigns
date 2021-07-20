@@ -104,7 +104,7 @@
                         </thead>
 
                         <tbody>
-                            <tr ng-repeat="event in events" repeat-done="initDataTable">
+                            <tr ng-repeat="event in events track by $index" repeat-done="initDataTable">
                                 <td>{{$index+1}}</td>
                                 <td>{{event.eventname}}</td>
                                 <td>{{event.studentcount}}</td>
@@ -146,13 +146,13 @@ app.controller('dashController', function($scope, $http, $resource, DTOptionsBui
             $scope.templatecount = response.data.templatecount;
             $scope.studentcount = response.data.studentcount;
             $scope.certcount = response.data.certcount;
-            $scope.$digest();
+           // $scope.$digest();
         });
     $scope.myPromise= $http.get('/pages/dashboard/getsummary.php')
         .then(function(response) {
          
             $scope.events= response.data;
-            $scope.$digest();
+            //$scope.$digest();
         });
 });
 </script>

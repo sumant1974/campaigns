@@ -51,13 +51,13 @@ class Students{
      
         // sanitize
         $this->email=htmlspecialchars(strip_tags($this->email));
-        $this->firstname=htmlspecialchars(strip_tags($this->firstname));
-        $this->lastname=htmlspecialchars(strip_tags($this->lastname));
+     //   $this->firstname=htmlspecialchars(strip_tags($this->firstname));
+     //   $this->lastname=htmlspecialchars(strip_tags($this->lastname));
         $this->eventid=htmlspecialchars(strip_tags($this->eventid));
-        $this->institute=htmlspecialchars(strip_tags($this->institute));
+      //  $this->institute=htmlspecialchars(strip_tags($this->institute));
         $this->state=htmlspecialchars(strip_tags($this->state));
         $this->regdid=htmlspecialchars(strip_tags($this->regdid));
-        $this->coursename=htmlspecialchars(strip_tags($this->coursename));
+     //   $this->coursename=htmlspecialchars(strip_tags($this->coursename));
         $this->duration=htmlspecialchars(strip_tags($this->duration));
          
         // bind the values

@@ -1,5 +1,7 @@
 <?php
 //Global functions to be used in php files will be listed here
+ini_set('session.cookie_samesite','None');
+ini_set('session.cookie_secure','On');
 session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
