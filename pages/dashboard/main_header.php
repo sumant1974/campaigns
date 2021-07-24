@@ -19,14 +19,14 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{eventcount}}</h3>
+              <h3>{{campaigncount}}</h3>
 
-              <p>Events</p>
+              <p>Campaigns</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="/pages/events/" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/pages/campaigns/" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -34,9 +34,9 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{templatecount}}</h3>
+              <h3>{{emailcount}}</h3>
 
-              <p>Templates</p>
+              <p>Emails Sent</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -45,36 +45,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>{{studentcount}}</h3>
-
-              <p>Students</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="/pages/students/" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>{{certcount}}</h3>
-
-              <p>Certificates</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="/pages/certificates/" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
+        
       </div>
 
       <!-- /.row -->
@@ -84,7 +55,7 @@
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
         <div cg-busy="myPromise"></div>
-        <h2>Welcome to Eduskills Certification Management Portal</h2>
+        <h2>Welcome to Eduskills Campaigns Management Portal</h2>
         <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Summary Sheet</h3>
@@ -97,18 +68,16 @@
                         <thead>
                             <tr>
                                 <th>Sl. No.</th>
-                                <th>Event Name</th>
-                                <th>Total Students</th>
-                                <th>Certificates Issued</th>
+                                <th>Campaign Name</th>
+                                <th>Emails Sent</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr ng-repeat="event in events track by $index" repeat-done="initDataTable">
+                            <tr ng-repeat="camp in camps track by $index" repeat-done="initDataTable">
                                 <td>{{$index+1}}</td>
-                                <td>{{event.eventname}}</td>
-                                <td>{{event.studentcount}}</td>
-                                <td>{{event.certcount}}</td>
+                                <td>{{camp.campaignname}}</td>
+                                <td>{{camp.emailssent}}</td>
                             </tr>
                         </tbody>
 
@@ -135,23 +104,19 @@
     <script>
 var app = angular.module('myApp', ['datatables', 'ngResource', 'ckeditor', 'datatables.buttons', 'cgBusy']);
 app.controller('dashController', function($scope, $http, $resource, DTOptionsBuilder) {
-  $scope.eventcount = "";
-  $scope.templatecount = "";
-  $scope.studentcount = "";
-  $scope.certcount = "";
+  $scope.campaigncount = "";
+  $scope.emailcount = "";
   $http.get('/pages/dashboard/getdashboard.php')
         .then(function(response) {
          
-            $scope.eventcount = response.data.eventcount;
-            $scope.templatecount = response.data.templatecount;
-            $scope.studentcount = response.data.studentcount;
-            $scope.certcount = response.data.certcount;
+            $scope.campaigncount = response.data.campaigncount;
+            $scope.emailcount = response.data.emailcount;
            // $scope.$digest();
         });
     $scope.myPromise= $http.get('/pages/dashboard/getsummary.php')
         .then(function(response) {
          
-            $scope.events= response.data;
+            $scope.camps= response.data;
             //$scope.$digest();
         });
 });

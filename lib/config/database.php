@@ -4,7 +4,7 @@ class Database{
  
     // specify your own database credentials
     private $host = "eduskills.cusrz1hjvdrm.us-west-2.rds.amazonaws.com";
-    private $db_name = "cert";
+    private $db_name = "campaign";
     private $username = "sumant1974";
     private $password = "Sucess#is#cisco";
     public $conn;

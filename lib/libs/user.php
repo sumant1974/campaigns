@@ -195,7 +195,7 @@ function getUsers(){
 function getDashboard()
 {
     // query to check if email exists
-    $query = "SELECT `eventcount`, `templatecount`, `studentcount`, `certcount` FROM `dashboard`";
+    $query = "SELECT count(*) as campaigncount, sum(emailssent) as emailcount FROM `campaigns`";
  
     // prepare the query
     $stmt = $this->conn->prepare( $query );
@@ -209,7 +209,7 @@ function getDashboard()
  
         // get record details / values
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $this->dashboard=['eventcount'=>$row['eventcount'],'templatecount'=>$row['templatecount'],'studentcount'=>$row['studentcount'],'certcount'=>$row['certcount']];
+        $this->dashboard=['campaigncount'=>$row['campaigncount'],'emailcount'=>$row['emailcount']];
 		//echo json_encode($allusers);
         return $this->dashboard;
     }
@@ -221,7 +221,7 @@ function getDashboard()
 function getSummary()
 {
     // query to check if email exists
-    $query = "SELECT * FROM `eventcertcount`";
+    $query = "SELECT campaignname,emailssent FROM `campaigns`";
  
     // prepare the query
     $stmt = $this->conn->prepare( $query );

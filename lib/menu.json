@@ -1,19 +1,6 @@
 [{
-        "name": "Events",
-        "link": "/pages/events/",
-        "iclass": "fas fa-calendar-plus"
-    }, {
-        "name": "Templates",
-        "link": "/pages/templates",
-        "iclass": "fas fa-gopuram"
-    }, {
-        "name": "Students",
-        "link": "/pages/students/",
-        "iclass": "fas fa-users"
-    },
-    {
-        "name": "Certificates",
-        "link": "/pages/certificates/",
-        "iclass": "fas fa-certificate"
+        "name": "Campaigns",
+        "link": "/pages/campaigns/",
+        "iclass": "fas fa-envelope-open-text"
     }
 ]
